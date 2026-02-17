@@ -1,7 +1,7 @@
 
 # AI Ask PDF
 
-A local tool powered by Ollama, LangChain, and llama3.2 to read a PDF using advanced embeddings and a large language model. Designed for efficiency, it utilizes an NVIDIA GPU with 12 GB VRAM.
+A local tool powered by Ollama, LangChain, and deepseek-r1:8b to read a PDF using advanced embeddings and a large language model. Designed for efficiency, it utilizes an NVIDIA GPU with 12 GB VRAM.
 
 ---
 
@@ -18,11 +18,31 @@ A local tool powered by Ollama, LangChain, and llama3.2 to read a PDF using adva
 `Question: Wer sind Formwandler?`
 
 ````
-Basierend auf dem Kontext, die Formwandler könnten höher entwickelte Wesen sein, die sich in Menschen verwandeln oder durch eine 
-Beeinflussung des Menschen als Menschen erscheinen. Sie könnten verschiedene Arten der Formwandlung haben, wie zum Beispiel die Fähigkeit, 
-sich in andere Tiere zu verwandeln oder physisch ein anderes Wesen zu sein und den Menschen so zu machen, dass er ihre Form annimmt.  
-Es gibt auch Hinweise darauf, dass es zwischen diesen Wesen und Menschen eine Art von Kooperation oder sogar Kontrolle geben könnte, 
-insbesondere im Zusammenhang mit Mönchen und Trancezuständen. Es ist jedoch unklar, ob die Absichten dieser Wesen positiv oder negativ sind.
+Die Hauptdarsteller in diesem Kontext sind:  1. 
+*
+*Miss de Bourgh
+*
+* – Eine prominente Figur, deren Heiratsprojekt im Mittelpunkt steht. 2. 
+*
+*Mr. Darcy
+*
+* – Ein zentraler Held, dessen Handlungen und Widerspruch zu den Ereignissen hervorgehoben werden. 3. 
+*
+*Miss Bennet (Elizabeth)
+*
+* – Die Hauptfigur, die sich aktiv in die Handlungen einmischt und deren Reaktionen zentral sind. 4. 
+*
+*Lady Catherine
+*
+* – Als eine mächtige Persönlichkeit, die durch ihre Meinungen und die Folgen ihrer Aussagen betont wird. 5. 
+*
+*Mr. Bingley
+*
+* – Ein weiterer wichtiger Figür, dessen Beziehung und Interaktionen Teil des Geschehens sind. 6. 
+*
+*Mrs. Bennet
+*
+* – Die Mutter, die durch ihre Anliegen und Handlungen die Familiengeschichte vorantreibt.  Diese Personen treiben die Handlungen und Diskussionen voran und bilden die Kernfigur des Textes.````
 ````
 
 ## Preparation
