@@ -1,5 +1,6 @@
 
 import signal
+import sys
 from langchain.chains import create_retrieval_chain
 from langchain.chains import RetrievalQA
 from langchain.chains.combine_documents import create_stuff_documents_chain
@@ -11,11 +12,11 @@ from langchain.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, H
 from colorama import Fore
 
 
-llm = OllamaLLM(model="llama3.2")
+llm = OllamaLLM(model="deepseek-r1:8b")
 
 embed_model = OllamaEmbeddings(model="nomic-embed-text")
 
-loader = PyPDFLoader("./data/MYTH-Die_Macht_der_Mythen.pdf") # Note: Die Ansichten und Behauptungen im Buch stellen in keiner Weise die Realität dar und dienen der Unterhaltung. Visit www.drachenzahm.com
+loader = PyPDFLoader("./data/prideprejudice.pdf")
 
 documents = loader.load()
 
@@ -51,15 +52,15 @@ combine_docs_chain = create_stuff_documents_chain(llm, retrieval_qa_chat_prompt)
 
 retrieval_chain = create_retrieval_chain(retriever, combine_docs_chain)
 
-def signal_handler(signum, frame):
-    raise KeyboardInterrupt
+def signal_handler(sig, frame):
+    print(Fore.WHITE + "\nBye!")
+    sys.exit(0)
 
 signal.signal(signal.SIGINT, signal_handler)
 
 def chat_loop():
     print(Fore.BLUE + "Willkommen! 'exit' um zu beenden.")
-    print("Beispiel-Fragen: Wer sind Graue?, Wer sind Anunnaki?, Wie werden Erscheinungen beschrieben?, Wer ist Dracula?, Was sind Formwandler und was zeichnet sie aus?, Erzähl mir was von Shangri-La?")
-    print(Fore.RED + "Note: Die Ansichten und Behauptungen im Buch stellen in keiner Weise die Realität dar und dienen der Unterhaltung, visit www.drachenzahm.com")
+    print("Beispiel-Fragen: Wer sind die Hauptdarsteller?")
     while True:
         try:
             user_input = input(Fore.GREEN + "User: ")
@@ -69,7 +70,10 @@ def chat_loop():
 
             response = retrieval_chain.invoke({"input": user_input})
             print(Fore.WHITE + response["answer"].replace("\n", " ").replace("*", "\n*"))
-        except:
+        except KeyboardInterrupt:
+            print(Fore.WHITE + "\nBye!")
+            break
+        except Exception:
             print(Fore.RED + "Error")
 
 chat_loop()
